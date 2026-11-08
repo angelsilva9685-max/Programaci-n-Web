@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Fondo oscuro radial para dar profundidad */
+body {
+    background-color: #0b0c10;
+    background-image: radial-gradient(circle at center, #410222 0%, #0b0c10 100%);
+    color: #c5c6c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor del formulario estilo "panel de control" */
+form {
+    background: rgba(15, 20, 25, 0.85);
+    padding: 40px 30px;
+    border-radius: 8px;
+    border: 1px solid #ff4655; /* Acento rojo/naranja táctico */
+    box-shadow: 0 0 20px rgba(255, 70, 85, 0.4), inset 0 0 10px rgba(255, 70, 85, 0.1);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    backdrop-filter: blur(5px);
+}
+
+h2 {
+    text-align: center;
+    color: #ff4655;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(255, 70, 85, 0.6);
+    margin-bottom: 10px;
+}
+h4 {
+    text-align: center;
+    color: #ff4655;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 70, 85, 0.6);
+    margin-bottom: 20px;
+}
+   
+
+label {
+    font-size: 1.1rem;
+    color: #a0a5a8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Campos de texto estilo terminal */
+input {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    border-bottom: 2px solid #ff4655;
+    color: #fff;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al hacer clic en el input */
+input:focus {
+    background: rgba(255, 70, 85, 0.05);
+    border: 1px solid #ff4655;
+    box-shadow: 0 0 10px rgba(255, 70, 85, 0.3);
+}
+
+/* Botón con efecto neón */
+button {
+    background: transparent;
+    color: #ee081b;
+    border: 2px solid #ff0000;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animación y brillo al pasar el mouse por el botón */
+button:hover {
+    background: #e32538b4;
+    color: #0b0c10;
+    box-shadow: 0 0 15px #ac242f, 0 0 30px #e14305;
+    transform: translateY(-2px);
+}
+
+/* Ajuste para los saltos de línea <br> que tienes en tu HTML para que no estorben */
+br {
+    display: none;
+}
