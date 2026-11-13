@@ -104,6 +104,16 @@ button:hover {
     box-shadow: 0 0 15px #ac242f, 0 0 30px #e14305;
     transform: translateY(-2px);
 }
+.register-link {
+    color : #f33535;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.register-link:hover {
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff4655, 0 0 20px #ff4655;
+}
 
 /* Ajuste para los saltos de línea <br> que tienes en tu HTML para que no estorben */
 br {
