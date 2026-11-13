@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
             const hashGuardado = results[0].contraseña;
             const coinciden = bcrypt.compareSync(pass, hashGuardado);
             if (coinciden) {
-                res.send('¡Login exitoso!');
+                res.redirect('/torneos.html');
             } else {
                 res.send('Contraseña incorrecta');
             }
