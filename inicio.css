@@ -245,3 +245,17 @@ main {
     min-height: 250px;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 110px; /* Evita que el header tape los títulos al hacer clic */
+}
+
+.seccion-centrada {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
