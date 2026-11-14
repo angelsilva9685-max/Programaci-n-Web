@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
+const session = require('express-session');
 
 const host = 'localhost';
 const port = 8080;
@@ -22,6 +23,38 @@ db.connect((err) => {
     } else {
         console.log('Connected to the database');
     }
+});
+
+app.use(session({
+    secret: 'vsgame-secreto-dev',
+    resave: false,
+    saveUninitialized: false
+}));
+function requireSession(req, res, next) {
+    if(!req.session.usuario) return res.redirect('/login.html');
+    next();
+}
+function escapeHTML(texto){
+    return String(texto)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+app.get('/torneos.html', requireSession, (req, res) => {
+    fs.readFile(path.join(__dirname, 'torneos.html'), 'utf8', (err, html) => {
+        if (err) {
+            res.status(500).send('No se pudo cargar la página');
+            return;
+        }
+        html = html.split('__NOMBRE__').join(escapeHTML(req.session.usuario));
+        res.send(html);
+    });
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy(() => res.redirect('/index.html'));
 });
 
 app.use(express.urlencoded({ extended: true }));
@@ -47,6 +80,10 @@ app.post('/login', (req, res) => {
             const hashGuardado = results[0].contraseña;
             const coinciden = bcrypt.compareSync(pass, hashGuardado);
             if (coinciden) {
+<<<<<<< HEAD
+                req.session.usuario = user;
+=======
+>>>>>>> 08b4c9b4d1491d8b86f8f8a657cd22a6a420552c
                 res.redirect('/torneos.html');
             } else {
                 res.send('Contraseña incorrecta');
