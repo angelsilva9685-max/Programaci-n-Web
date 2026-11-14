@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
+const session = require('express-session');
 
 const host = 'localhost';
 const port = 8080;
@@ -24,6 +25,38 @@ db.connect((err) => {
     }
 });
 
+app.use(session({
+    secret: 'vsgame-secreto-dev',
+    resave: false,
+    saveUninitialized: false
+}));
+function requireSession(req, res, next) {
+    if(!req.session.usuario) return res.redirect('/login.html');
+    next();
+}
+function escapeHTML(texto){
+    return String(texto)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+app.get('/torneos.html', requireSession, (req, res) => {
+    fs.readFile(path.join(__dirname, 'torneos.html'), 'utf8', (err, html) => {
+        if (err) {
+            res.status(500).send('No se pudo cargar la página');
+            return;
+        }
+        html = html.split('__NOMBRE__').join(escapeHTML(req.session.usuario));
+        res.send(html);
+    });
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy(() => res.redirect('/index.html'));
+});
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
@@ -43,17 +76,18 @@ app.post('/login', (req, res) => {
             console.error('Error al consultar la base de datos:', err);
             res.send('Error al consultar la base de datos');
             return;
-       } else if (results.length > 0) {
-        const hashGuardado = results[0].contraseña;
-        const coinciden = bcrypt.compareSync(pass, hashGuardado);
-        if (coinciden) {
-            res.redirect('/torneos.html');
+        } else if (results.length > 0) {
+            const hashGuardado = results[0].contraseña;
+            const coinciden = bcrypt.compareSync(pass, hashGuardado);
+            if (coinciden) {
+                req.session.usuario = user;
+                res.redirect('/torneos.html');
+            } else {
+                res.send('Contraseña incorrecta');
+            }
         } else {
-            res.send('<body style="background-color: #0b0c10; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px;"><h2 style="color: #ff4655;">Contraseña incorrecta</h2><a href="login.html" style="color: #ff4655; text-decoration: none; font-weight: bold;">Volver a intentar</a></body>');
+            res.send('Usuario no encontrado');
         }
-    } else {
-        res.send('<body style="background-color: #0b0c10; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px;"><h2 style="color: #ff4655;">Usuario no encontrado</h2><a href="login.html" style="color: #ff4655; text-decoration: none; font-weight: bold;">Volver a intentar</a></body>');
-    }
     });
 });
 
