@@ -87,9 +87,8 @@ app.post('/login', (req, res) => {
             }
         } else {
             res.send('Usuario no encontrado');
-        };
+        }
     });
-
 });
 
 app.post('/nuevo-registro', (req, res) => {
