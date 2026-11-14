@@ -80,7 +80,10 @@ app.post('/login', (req, res) => {
             const hashGuardado = results[0].contraseña;
             const coinciden = bcrypt.compareSync(pass, hashGuardado);
             if (coinciden) {
+<<<<<<< HEAD
                 req.session.usuario = user;
+=======
+>>>>>>> 08b4c9b4d1491d8b86f8f8a657cd22a6a420552c
                 res.redirect('/torneos.html');
             } else {
                 res.send('Contraseña incorrecta');
