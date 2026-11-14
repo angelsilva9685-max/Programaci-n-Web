@@ -43,19 +43,18 @@ app.post('/login', (req, res) => {
             console.error('Error al consultar la base de datos:', err);
             res.send('Error al consultar la base de datos');
             return;
-        } else if (results.length > 0) {
-            const hashGuardado = results[0].contraseña;
-            const coinciden = bcrypt.compareSync(pass, hashGuardado);
-            if (coinciden) {
-                res.redirect('/torneos.html');
-            } else {
-                res.send('Contraseña incorrecta');
-            }
+       } else if (results.length > 0) {
+        const hashGuardado = results[0].contraseña;
+        const coinciden = bcrypt.compareSync(pass, hashGuardado);
+        if (coinciden) {
+            res.redirect('/torneos.html');
         } else {
-            res.send('Usuario no encontrado');
-        };
+            res.send('<body style="background-color: #0b0c10; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px;"><h2 style="color: #ff4655;">Contraseña incorrecta</h2><a href="login.html" style="color: #ff4655; text-decoration: none; font-weight: bold;">Volver a intentar</a></body>');
+        }
+    } else {
+        res.send('<body style="background-color: #0b0c10; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px;"><h2 style="color: #ff4655;">Usuario no encontrado</h2><a href="login.html" style="color: #ff4655; text-decoration: none; font-weight: bold;">Volver a intentar</a></body>');
+    }
     });
-
 });
 
 app.post('/nuevo-registro', (req, res) => {

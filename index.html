@@ -18,6 +18,7 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#historia">Historia</a></li>
+        <li><a href="#torneos">Torneos</a></li>
         <li><a href="#juegos">Juegos</a></li>
         <li><a href="#comunidad">Comunidad</a></li>
       </ul>
@@ -37,7 +38,7 @@
         <h1 class="text-white mb-3" style="font-size: 2.8rem; line-height: 1.1;">Bienvenidos a VSGAME</h1>
         <p class="text-secondary mb-3" style="font-size: 1.1rem;">Comunidad enfocada en torneos de los videojuegos mas competitivos en la actualidad.</p>
         <p class="text-secondary mb-4 small">Compite, escala puestos en los rankings y demuestra de qué estás hecho en cada enfrentamiento.</p>
-        <a href="#juegos" class="btn btn-danger fw-bold px-4 py-2 align-self-start">Ver torneos</a>
+        <a href="#torneos" class="btn btn-danger fw-bold px-4 py-2 align-self-start">Ver torneos</a>
       </div>
     </section>
   </main>
@@ -77,7 +78,67 @@
     </div>
   </section>
 
-  <!-- 3. SECCIÓN JUEGOS COMPETITIVOS CON ESTILOS Y MÁS CONTENIDO -->
+  <!-- 3. SECCIÓN DE TORNEOS EN VIVO Y HISTORIAL (Colocada correctamente al medio) -->
+  <section id="torneos" class="container mb-5 py-5 seccion-centrada text-white" style="max-width: 1100px; border-top: 1px solid #222;">
+    <h2 class="text-center text-danger fw-bold mb-2" style="letter-spacing: 2px;">CALENDARIO DE TORNEOS Y EN VIVO</h2>
+    <p class="text-center text-secondary mb-5">Selecciona tu juego favorito, revisa las fechas y accede directamente a las transmisiones y partidas grabadas.</p>
+    
+    <div class="row g-4">
+      <!-- Fortnite -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card bg-dark border-secondary h-100 text-white shadow">
+          <img src="imagenes/fort.jpeg" class="card-img-top" alt="Fortnite" style="height: 160px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-danger fw-bold">Fortnite Royale Cup</h5>
+            <p class="text-secondary small mb-1">📅 <strong>Fecha:</strong> 20 de Noviembre</p>
+            <p class="text-secondary small mb-3">⏰ <strong>Hora:</strong> 4:00 PM (Final)</p>
+            <a href="https://www.youtube.com/watch?v=_Y-2qyfNGM0" target="_blank" class="btn btn-danger btn-sm mt-auto fw-bold">Ver partida en YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Counter Strike -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card bg-dark border-secondary h-100 text-white shadow">
+          <img src="imagenes/counter.jpg" class="card-img-top" alt="Counter Strike" style="height: 160px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-danger fw-bold">CS2 Masters League</h5>
+            <p class="text-secondary small mb-1">📅 <strong>Fecha:</strong> 22 de Noviembre</p>
+            <p class="text-secondary small mb-3">⏰ <strong>Hora:</strong> 6:00 PM</p>
+            <a href="https://www.youtube.com/watch?v=yBgEwUxw4jU" target="_blank" class="btn btn-danger btn-sm mt-auto fw-bold">Ver partida en YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left 4 Dead -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card bg-dark border-secondary h-100 text-white shadow">
+          <img src="imagenes/left.jpg" class="card-img-top" alt="Left 4 Dead" style="height: 160px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-danger fw-bold">Survival Night L4D</h5>
+            <p class="text-secondary small mb-1">📅 <strong>Fecha:</strong> 25 de Noviembre</p>
+            <p class="text-secondary small mb-3">⏰ <strong>Hora:</strong> 8:00 PM</p>
+            <a href="https://www.youtube.com/watch?v=N8TzF8lVcJc" target="_blank" class="btn btn-danger btn-sm mt-auto fw-bold">Ver partida en YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Legends -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card bg-dark border-secondary h-100 text-white shadow">
+          <img src="imagenes/mobile.jpg" class="card-img-top" alt="Mobile Legends" style="height: 160px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-danger fw-bold">MLBB Clash Series</h5>
+            <p class="text-secondary small mb-1">📅 <strong>Fecha:</strong> 28 de Noviembre</p>
+            <p class="text-secondary small mb-3">⏰ <strong>Hora:</strong> 5:00 PM</p>
+            <a href="https://www.youtube.com/watch?v=MWNNHICgL-0" target="_blank" class="btn btn-danger btn-sm mt-auto fw-bold">Ver partida en YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SECCIÓN JUEGOS COMPETITIVOS CON ESTILOS Y MÁS CONTENIDO -->
   <section id="juegos" class="container mb-5 py-5 seccion-centrada" style="max-width: 1000px; border-top: 1px solid #222;">
     <h2 class="text-center text-white mb-2 fw-bold" style="letter-spacing: 2px;">JUEGOS COMPETITIVOS</h2>
     <p class="text-center text-secondary mb-4">Conoce los títulos oficiales de nuestros torneos y sus estilos de juego principales.</p>
@@ -112,7 +173,7 @@
       </div>
     </div>
 
-    
+    <!-- Tarjetas de estilos de juego -->
     <div class="row g-3">
       <div class="col-md-6 col-lg-3">
         <div class="p-3 bg-dark border border-secondary rounded h-100">
@@ -145,7 +206,7 @@
     </div>
   </section>
 
-  <!-- 4. SECCIÓN COMUNIDAD (Rica en opciones de interacción) -->
+  <!-- 5. SECCIÓN COMUNIDAD -->
   <section id="comunidad" class="container mb-5 py-5 text-center text-white seccion-centrada" style="max-width: 900px; border-top: 1px solid #222;">
     <h2 class="text-danger fw-bold mb-3" style="letter-spacing: 2px;">ÚNETE A LA COMUNIDAD</h2>
     <p class="text-secondary mb-4 mx-auto" style="max-width: 650px; font-size: 1.1rem;">
