@@ -4,138 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VSGAME · Torneos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="torneos.css">
 </head>
 <body>
 
-    <!-- Barra superior -->
-    <header class="topbar">
-        <div class="logo-container">
-            <img src="imagenes/Banner gaming VSGAME en rojo y negro.png" alt="VSGAME">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagenes/Banner gaming VSGAME en rojo y negro.png" alt="VSGAME" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navTorneos" aria-controls="navTorneos" aria-expanded="false" aria-label="Alternar navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navTorneos">
+                <ul class="navbar-nav mx-auto gap-2 text-uppercase fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#torneos">Torneos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#como-participar">Cómo participar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
+                </ul>
+                <a href="inicio.html" class="btn btn-outline-danger btn-sm text-uppercase fw-bold px-3">Cerrar sesión</a>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#torneos">Torneos</a></li>
-                <li><a href="#como-participar">Cómo participar</a></li>
-                <li><a href="#noticias">Noticias</a></li>
-            </ul>
-        </nav>
-        <a href="inicio.html" class="btn-logout">Cerrar sesión</a>
-    </header>
+    </nav>
 
-    <main>
-        <!-- Bienvenida -->
-        <section class="hero">
-            <span class="badge">ZONA DE COMPETICIÓN</span>
-            <h1>ZONA DE <span>TORNEOS</span></h1>
-            <p>Bienvenido, jugador. Esta es la zona de torneos oficiales de VSGAME: prepárate, elige tu juego y pelea por la gloria.</p>
-            <div class="hero-stats">
-                <div class="stat"><strong>4</strong><small>juegos</small></div>
-                <div class="stat"><strong>$5,800</strong><small>en premios</small></div>
-                <div class="stat"><strong>5 vs 5</strong><small>formato estrella</small></div>
+    <main class="container pb-5">
+        
+        <section class="hero my-4 p-4 p-md-5">
+            <span class="badge text-bg-danger p-2 px-3 text-uppercase letter-spacing-2">Zona de competición</span>
+            <h1 class="display-5 display-md-4 fw-bold text-uppercase text-white my-3 hero-titulo">Zona de <span>Torneos</span></h1>
+            <p class="lead text-secondary hero-texto">Bienvenido, jugador. Esta es la zona de torneos oficiales de VSGAME: prepárate, elige tu juego y pelea por la gloria.</p>
+            <div class="d-flex flex-wrap gap-4 gap-md-5 mt-4">
+                <div class="text-center">
+                    <strong class="fs-3 text-white d-block lh-1">4</strong>
+                    <small class="text-secondary text-uppercase">juegos</small>
+                </div>
+                <div class="text-center">
+                    <strong class="fs-3 text-white d-block lh-1">$5,800</strong>
+                    <small class="text-secondary text-uppercase">en premios</small>
+                </div>
+                <div class="text-center">
+                    <strong class="fs-3 text-white d-block lh-1">5 vs 5</strong>
+                    <small class="text-secondary text-uppercase">formato estrella</small>
+                </div>
             </div>
         </section>
 
-        <!-- Torneos próximos -->
-        <section id="torneos" class="seccion">
+        
+        <section id="torneos" class="seccion mt-5">
             <h2 class="seccion-titulo">Torneos próximos</h2>
-            <div class="torneos-grid">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
 
-                <article class="torneo-card">
-                    <img src="imagenes/fort.jpeg" alt="Fortnite">
-                    <div class="torneo-body">
-                        <h3>Fortnite</h3>
-                        <p class="torneo-fecha">Domingo 22 de noviembre · 18:00</p>
-                        <p class="torneo-detalle">Solitario · Dúos · Escuadrón</p>
-                        <p class="torneo-premio">Premio: $1,000</p>
-                        <span class="torneo-estado">Inscripciones próximamente</span>
+                <article class="col">
+                    <div class="card bg-dark border-secondary h-100 torneo-card">
+                        <img src="imagenes/fort.jpeg" class="card-img-top torneo-img" alt="Fortnite">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title text-white text-uppercase">Fortnite</h3>
+                            <p class="torneo-fecha mb-1">Domingo 22 de noviembre · 18:00</p>
+                            <p class="text-secondary small mb-2">Solitario · Dúos · Escuadrón</p>
+                            <p class="text-warning fw-semibold mb-3">Premio: $1,000</p>
+                            <span class="torneo-estado mt-auto">Inscripciones próximamente</span>
+                        </div>
                     </div>
                 </article>
 
-                <article class="torneo-card">
-                    <img src="imagenes/counter.jpg" alt="Counter-Strike">
-                    <div class="torneo-body">
-                        <h3>Counter-Strike 2</h3>
-                        <p class="torneo-fecha">Sábado 28 de noviembre · 20:00</p>
-                        <p class="torneo-detalle">Equipos de 5 · 5 vs 5</p>
-                        <p class="torneo-premio">Premio: $2,500</p>
-                        <span class="torneo-estado">Inscripciones próximamente</span>
+                <article class="col">
+                    <div class="card bg-dark border-secondary h-100 torneo-card">
+                        <img src="imagenes/counter.jpg" class="card-img-top torneo-img" alt="Counter-Strike">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title text-white text-uppercase">Counter-Strike 2</h3>
+                            <p class="torneo-fecha mb-1">Sábado 28 de noviembre · 20:00</p>
+                            <p class="text-secondary small mb-2">Equipos de 5 · 5 vs 5</p>
+                            <p class="text-warning fw-semibold mb-3">Premio: $2,500</p>
+                            <span class="torneo-estado mt-auto">Inscripciones próximamente</span>
+                        </div>
                     </div>
                 </article>
 
-                <article class="torneo-card">
-                    <img src="imagenes/mobile.jpg" alt="Mobile Legends">
-                    <div class="torneo-body">
-                        <h3>Mobile Legends</h3>
-                        <p class="torneo-fecha">Sábado 5 de diciembre · 17:00</p>
-                        <p class="torneo-detalle">Grupos de 5 · 5 vs 5</p>
-                        <p class="torneo-premio">Premio: $1,500</p>
-                        <span class="torneo-estado">Inscripciones próximamente</span>
+                <article class="col">
+                    <div class="card bg-dark border-secondary h-100 torneo-card">
+                        <img src="imagenes/mobile.jpg" class="card-img-top torneo-img" alt="Mobile Legends">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title text-white text-uppercase">Mobile Legends</h3>
+                            <p class="torneo-fecha mb-1">Sábado 5 de diciembre · 17:00</p>
+                            <p class="text-secondary small mb-2">Grupos de 5 · 5 vs 5</p>
+                            <p class="text-warning fw-semibold mb-3">Premio: $1,500</p>
+                            <span class="torneo-estado mt-auto">Inscripciones próximamente</span>
+                        </div>
                     </div>
                 </article>
 
-                <article class="torneo-card">
-                    <img src="imagenes/left.jpg" alt="Left 4 Dead">
-                    <div class="torneo-body">
-                        <h3>Left 4 Dead 2</h3>
-                        <p class="torneo-fecha">Domingo 13 de diciembre · 19:00</p>
-                        <p class="torneo-detalle">Squads de máximo 4 jugadores</p>
-                        <p class="torneo-premio">Premio: $800</p>
-                        <span class="torneo-estado">Inscripciones próximamente</span>
+                <article class="col">
+                    <div class="card bg-dark border-secondary h-100 torneo-card">
+                        <img src="imagenes/left.jpg" class="card-img-top torneo-img" alt="Left 4 Dead">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title text-white text-uppercase">Left 4 Dead 2</h3>
+                            <p class="torneo-fecha mb-1">Domingo 13 de diciembre · 19:00</p>
+                            <p class="text-secondary small mb-2">Squads de máximo 4 jugadores</p>
+                            <p class="text-warning fw-semibold mb-3">Premio: $800</p>
+                            <span class="torneo-estado mt-auto">Inscripciones próximamente</span>
+                        </div>
                     </div>
                 </article>
 
             </div>
         </section>
 
-        <!-- Cómo participar -->
-        <section id="como-participar" class="seccion">
+        
+        <section id="como-participar" class="seccion mt-5">
             <h2 class="seccion-titulo">¿Cómo participar?</h2>
-            <div class="pasos-grid">
-                <div class="paso">
-                    <span class="paso-numero">1</span>
-                    <h3>Regístrate</h3>
-                    <p>Todos los miembros del equipo deben tener una cuenta en VSGAME. No se aceptan jugadores sin registro.</p>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body d-flex flex-column gap-2">
+                            <span class="paso-numero">1</span>
+                            <h3 class="card-title text-white text-uppercase fs-5">Regístrate</h3>
+                            <p class="text-secondary mb-0">Todos los miembros del equipo deben tener una cuenta en VSGAME. No se aceptan jugadores sin registro.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="paso">
-                    <span class="paso-numero">2</span>
-                    <h3>Elige tu juego</h3>
-                    <p>Fortnite (Solitario, Dúos o Escuadrón), Counter-Strike 2 y Mobile Legends (5 jugadores) o Left 4 Dead 2 (máximo 4).</p>
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body d-flex flex-column gap-2">
+                            <span class="paso-numero">2</span>
+                            <h3 class="card-title text-white text-uppercase fs-5">Elige tu juego</h3>
+                            <p class="text-secondary mb-0">Fortnite (Solitario, Dúos o Escuadrón), Counter-Strike 2 y Mobile Legends (5 jugadores) o Left 4 Dead 2 (máximo 4).</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="paso">
-                    <span class="paso-numero">3</span>
-                    <h3>Arma tu equipo</h3>
-                    <p>Ponle nombre a tu equipo e invita a compañeros con cuenta en VSGAME. Prepárate para la arena.</p>
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body d-flex flex-column gap-2">
+                            <span class="paso-numero">3</span>
+                            <h3 class="card-title text-white text-uppercase fs-5">Arma tu equipo</h3>
+                            <p class="text-secondary mb-0">Ponle nombre a tu equipo e invita a compañeros con cuenta en VSGAME. Prepárate para la arena.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Noticias -->
-        <section id="noticias" class="seccion">
+        
+        <section id="noticias" class="seccion mt-5">
             <h2 class="seccion-titulo">Noticias y anuncios</h2>
-            <div class="noticias-grid">
-                <article class="noticia-card">
-                    <span class="noticia-fecha">10 NOV 2026</span>
-                    <h3>Nuevas reglas de fair play</h3>
-                    <p>Desde este torneo queda prohibido el uso de macros y scripts. Las cuentas detectadas serán baneadas permanentemente.</p>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <article class="col">
+                    <div class="card bg-dark border-secondary h-100 noticia-card">
+                        <div class="card-body">
+                            <span class="noticia-fecha">10 NOV 2026</span>
+                            <h3 class="card-title text-white mt-2 fs-5">Nuevas reglas de fair play</h3>
+                            <p class="text-secondary mb-0">Desde este torneo queda prohibido el uso de macros y scripts. Las cuentas detectadas serán baneadas permanentemente.</p>
+                        </div>
+                    </div>
                 </article>
-                <article class="noticia-card">
-                    <span class="noticia-fecha">08 NOV 2026</span>
-                    <h3>Mantenimiento programado</h3>
-                    <p>El servidor estará en mantenimiento el viernes 20 de noviembre de 02:00 a 05:00 (hora local). Planea tus partidas con anticipación.</p>
+                <article class="col">
+                    <div class="card bg-dark border-secondary h-100 noticia-card">
+                        <div class="card-body">
+                            <span class="noticia-fecha">08 NOV 2026</span>
+                            <h3 class="card-title text-white mt-2 fs-5">Mantenimiento programado</h3>
+                            <p class="text-secondary mb-0">El servidor estará en mantenimiento el viernes 20 de noviembre de 02:00 a 05:00 (hora local). Planea tus partidas con anticipación.</p>
+                        </div>
+                    </div>
                 </article>
-                <article class="noticia-card">
-                    <span class="noticia-fecha">01 NOV 2026</span>
-                    <h3>Premios de la Season 3</h3>
-                    <p>Los 3 mejores equipos del mes se llevarán placas conmemorativas y boost de XP doble durante diciembre.</p>
+                <article class="col">
+                    <div class="card bg-dark border-secondary h-100 noticia-card">
+                        <div class="card-body">
+                            <span class="noticia-fecha">01 NOV 2026</span>
+                            <h3 class="card-title text-white mt-2 fs-5">Premios de la Season 3</h3>
+                            <p class="text-secondary mb-0">Los 3 mejores equipos del mes se llevarán placas conmemorativas y boost de XP doble durante diciembre.</p>
+                        </div>
+                    </div>
                 </article>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>VSGAME © 2026 · Zona de Supervivencia · <a href="index.html">Volver a la portada</a></p>
+    <footer class="border-top border-secondary py-4">
+        <div class="container text-center text-secondary">
+            <p class="mb-0">VSGAME © 2026 · Zona de Supervivencia · <a href="index.html" class="text-danger text-decoration-none">Volver a la portada</a></p>
+        </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

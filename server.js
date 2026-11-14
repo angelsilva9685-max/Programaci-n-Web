@@ -71,7 +71,7 @@ app.post('/nuevo-registro', (req, res) => {
             console.error('Error al registrar usuario:', err);
             res.send('Error al registrar. Es posible que el usuario ya exista');
         } else {
-            res.send('Usuario registrado con éxito en MySQL');
+            res.redirect('/registro-exitoso.html');
         }
     });
 });
