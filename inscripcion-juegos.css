@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap');
+
+/* El grueso del diseño lo hace Bootstrap; aquí solo el tema VSGAME */
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #0b0c10;
+    background-image: radial-gradient(circle at center, #410222 0%, #0b0c10 100%);
+    min-height: 100vh;
+}
+
+/* Panel principal estilo "panel de control" */
+.panel {
+    max-width: 880px;
+    padding: 2rem 1.5rem;
+    background: rgba(15, 20, 25, 0.92);
+    border: 1px solid #ff4655;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255, 70, 85, 0.35), inset 0 0 12px rgba(255, 70, 85, 0.08);
+}
+
+.titulo {
+    color: #ff4655;
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(255, 70, 85, 0.6);
+}
+
+.subtitulo {
+    letter-spacing: 2px;
+}
+
+.seccion-titulo {
+    color: #ff4655;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 70, 85, 0.35);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+/* Imágenes de las tarjetas de juego */
+.game-option {
+    text-align: center;
+}
+
+.game-img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Brillo extra para la opción marcada con btn-check de Bootstrap */
+.btn-check:checked + .btn {
+    box-shadow: 0 0 16px rgba(255, 70, 85, 0.55);
+}
+
+.cupos-tabla thead th {
+    color: #ff8a94;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+/* Borde punteado para las notas */
+.border-dashed {
+    border-style: dashed !important;
+}
+
+/* Placeholders: ocultos por defecto (navegadores sin :has) */
+.modalidad-placeholder,
+.integrantes-placeholder {
+    display: none;
+}
+
+.int-solos {
+    display: none;
+}
+
+@supports selector(:has(*)) {
+    /* ===== Modalidad: oculta hasta elegir juego ===== */
+    .modalidad-block {
+        display: none;
+    }
+
+    .modalidad-placeholder {
+        display: block;
+    }
+
+    .form-inscripcion:has(input[name="juego"]:checked) .modalidad-placeholder {
+        display: none;
+    }
+
+    .form-inscripcion:has(#juego-fortnite:checked) .modalidad-fortnite,
+    .form-inscripcion:has(#juego-counter-strike:checked) .modalidad-counter-strike,
+    .form-inscripcion:has(#juego-mobile-legends:checked) .modalidad-mobile-legends,
+    .form-inscripcion:has(#juego-left-4-dead:checked) .modalidad-left-4-dead {
+        display: block;
+    }
+
+    /* ===== Integrantes: ocultos hasta elegir modalidad ===== */
+    .integrante-campo {
+        display: none;
+    }
+
+    .integrantes-placeholder {
+        display: block;
+    }
+
+    .form-inscripcion:has(input[name="modalidad"]:checked) .integrantes-placeholder {
+        display: none;
+    }
+
+    /* Dúos → solo cupo 2 */
+    .form-inscripcion:has(#mod-fortnite-duos:checked) .cupo2 {
+        display: block;
+    }
+
+    /* Squad (Fortnite) y Left 4 Dead → cupos 2 al 4 */
+    .form-inscripcion:has(#mod-fortnite-squad:checked) .cupo2,
+    .form-inscripcion:has(#mod-fortnite-squad:checked) .cupo3,
+    .form-inscripcion:has(#mod-fortnite-squad:checked) .cupo4,
+    .form-inscripcion:has(#mod-l4d-squad4:checked) .cupo2,
+    .form-inscripcion:has(#mod-l4d-squad4:checked) .cupo3,
+    .form-inscripcion:has(#mod-l4d-squad4:checked) .cupo4 {
+        display: block;
+    }
+
+    /* 5 vs 5 (CS / ML) → cupos 2 al 5 */
+    .form-inscripcion:has(#mod-cs-5v5:checked) .cupo2,
+    .form-inscripcion:has(#mod-cs-5v5:checked) .cupo3,
+    .form-inscripcion:has(#mod-cs-5v5:checked) .cupo4,
+    .form-inscripcion:has(#mod-cs-5v5:checked) .cupo5,
+    .form-inscripcion:has(#mod-ml-5v5:checked) .cupo2,
+    .form-inscripcion:has(#mod-ml-5v5:checked) .cupo3,
+    .form-inscripcion:has(#mod-ml-5v5:checked) .cupo4,
+    .form-inscripcion:has(#mod-ml-5v5:checked) .cupo5 {
+        display: block;
+    }
+
+    /* Solos → sin cupos, solo aviso */
+    .form-inscripcion:has(#mod-fortnite-solos:checked) .int-solos {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .titulo {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .panel {
+        padding: 1.5rem 1rem;
+    }
+}
